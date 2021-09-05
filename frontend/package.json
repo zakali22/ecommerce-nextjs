@@ -63,8 +63,18 @@
     "typescript": "^4.4.2"
   },
   "eslintConfig": {
-    "rules":  {
-      "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+    "rules": {
+      "react/jsx-filename-extension": [
+        2,
+        {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ]
     },
     "extends": [
       "wesbos"
