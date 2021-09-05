@@ -1,20 +1,27 @@
 import styled from 'styled-components';
 
+export const NavContainer = styled.nav`
+  border-top: 1px solid var(--black, black);
+  border-bottom: 10px solid var(--black, black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+`;
+
 const NavStyles = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  justify-self: end;
-  font-size: 2rem;
+  font-size: 1rem;
   a,
   button {
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1em;
     background: none;
     border: 0;
     cursor: pointer;
@@ -48,7 +55,7 @@ const NavStyles = styled.ul`
     &:hover,
     &:focus {
       outline: none;
-      text-decoration:none;
+      text-decoration: none;
       &:after {
         width: calc(100% - 60px);
       }
