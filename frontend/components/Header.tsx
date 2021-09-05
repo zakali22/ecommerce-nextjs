@@ -1,17 +1,19 @@
 /* eslint-disable import/no-unresolved */
 import Link from 'next/link';
 import Nav from './Nav';
+import { Logo } from './styles/Logo';
+import { HeaderStyle } from './styles/Header';
 
 export default function Header() {
   return (
-    <header>
+    <HeaderStyle>
       <Link href="/">
-        <h1>Sick Fits</h1>
+        <Logo>Sick Fits</Logo>
       </Link>
-      <div className="search-wrapper">
-        <input type="text" name="search" placeholder="Search" />
-      </div>
       <Nav />
-    </header>
+      <div className="search-wrapper">
+        <input type="text" name="search" placeholder="Search For An Item" />
+      </div>
+    </HeaderStyle>
   );
 }
