@@ -7,6 +7,7 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -41,6 +42,7 @@ export default withAuth(
     lists: createSchema({
       // List of schema goes here
       User,
+      Product,
     }),
     ui: {
       // Access to the Keystone dashboard for DB management
