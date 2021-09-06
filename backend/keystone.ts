@@ -8,6 +8,7 @@ import {
 } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -43,6 +44,7 @@ export default withAuth(
       // List of schema goes here
       User,
       Product,
+      ProductImage,
     }),
     ui: {
       // Access to the Keystone dashboard for DB management
