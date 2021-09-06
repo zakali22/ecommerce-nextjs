@@ -29,10 +29,13 @@ export const Product = list({
       defaultValue: 'IN_PROGRESS',
       ui: {
         displayMode: 'segmented-control',
-        // listView
       },
     }),
     price: integer(),
-    // Todo: Add Photo field (relationship type => Photo schema)
+  },
+  ui: {
+    listView: {
+      initialColumns: ['name', 'photo', 'description', 'status', 'price'],
+    },
   },
 });
