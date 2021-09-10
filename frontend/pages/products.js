@@ -1,3 +1,5 @@
+import ProductListing from '../components/Products/ProductsListing';
+
 export default function ProductPage() {
-  return <div>Product page</div>;
+  return <ProductListing />;
 }
