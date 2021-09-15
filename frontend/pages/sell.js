@@ -1,3 +1,5 @@
+import SellForm from '../components/SellForm.tsx';
+
 export default function SellPage() {
-  return <div>Sell page</div>;
+  return <SellForm />;
 }
