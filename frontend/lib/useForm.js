@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 export default function useForm(initialFormState = {}) {
   const [inputs, setInputs] = useState(initialFormState);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function handleInputChange(e) {
     let { value, name, type } = e.target;
@@ -12,19 +11,14 @@ export default function useForm(initialFormState = {}) {
     }
 
     if (type === 'file') {
-      value = e.target.files;
+      [value] = e.target.files;
+      console.log(value);
     }
 
     setInputs({
       ...inputs,
       [name]: value,
     });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(inputs);
-    setIsSubmitted(true);
   }
 
   function clearForm() {
@@ -43,8 +37,6 @@ export default function useForm(initialFormState = {}) {
   return {
     inputs,
     handleInputChange,
-    handleSubmit,
-    isSubmitted,
     clearForm,
     resetForm,
   };

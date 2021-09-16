@@ -1,6 +1,9 @@
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
+import { ALL_PRODUCTS_QUERY } from './Products/ProductsListing';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -16,7 +19,7 @@ const CREATE_PRODUCT_MUTATION = gql`
         description: $description
         status: $status
         price: $price
-        photo: { create: { image: $image } }
+        photo: { create: { image: $image, altText: $name } }
       }
     ) {
       id
@@ -29,22 +32,34 @@ const CREATE_PRODUCT_MUTATION = gql`
 `;
 
 export default function SellForm() {
-  const {
-    inputs,
-    handleInputChange,
-    isSubmitted,
-    clearForm,
-    resetForm,
-    handleSubmit,
-  } = useForm({
+  const { inputs, handleInputChange, clearForm, resetForm } = useForm({
     name: '',
     description: '',
     price: 0,
+    image: '',
   });
 
+  const [createProduct, { data, loading, error }] = useMutation(
+    CREATE_PRODUCT_MUTATION,
+    {
+      variables: inputs,
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+    }
+  );
+
   return (
-    <Form onSubmit={handleSubmit}>
-      <fieldset aria-busy={isSubmitted} disabled={isSubmitted}>
+    <Form
+      onSubmit={async (e) => {
+        // handleSubmit(e);
+        e.preventDefault();
+        const res = await createProduct();
+        clearForm();
+        Router.push({
+          pathname: `/products/${res.data.createProduct.id}`,
+        });
+      }}
+    >
+      <fieldset aria-busy={loading} disabled={loading}>
         <label htmlFor="image">
           Image
           <input
@@ -87,9 +102,7 @@ export default function SellForm() {
             onChange={(e) => handleInputChange(e)}
           />
         </label>
-        <button type="submit" onClick={handleSubmit}>
-          + Add product
-        </button>
+        <button type="submit">+ Add product</button>
         <button type="submit" onClick={clearForm}>
           Clear form
         </button>
