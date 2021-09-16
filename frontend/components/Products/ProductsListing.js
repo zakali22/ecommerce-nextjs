@@ -4,7 +4,7 @@ import Product from './Product';
 import { ProductListingStyle } from '../styles/ProductListing';
 
 // Defined in Graphql playground
-const ALL_PRODUCTS_QUERY = gql`
+export const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY {
     allProducts {
       id
