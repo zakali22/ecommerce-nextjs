@@ -27,6 +27,11 @@ const SingleProductStyle = styled.div`
     max-width: 500px;
     height: auto;
     margin-right: 50px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
   }
 `;
 
