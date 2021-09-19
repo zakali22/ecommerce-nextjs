@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 
-const PRODUCT_QUERY = gql`
+export const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
     Product(where: { id: $id }) {
       id
