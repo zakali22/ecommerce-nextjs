@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport var ProductListingStyle = styled.div.withConfig({\n  displayName: \"ProductListing__ProductListingStyle\",\n  componentId: \"s88u1n-0\"\n})([\"display:grid;grid-template-columns:1fr 1fr;grid-gap:60px;@media (max-width:767px){grid-template-columns:1fr;}\"]);","map":null,"metadata":{},"sourceType":"module"}
