@@ -23,7 +23,7 @@ const Item = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
-    max-width: fit-content;
+    /* max-width: fit-content; */
     border-top: 1px solid var(--lightGray);
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
@@ -33,6 +33,13 @@ const Item = styled.div`
       border: 0;
       font-size: 1.5rem;
       padding: 1rem;
+      font-weight: 400;
+      text-align: center;
+      cursor: pointer;
+
+      a {
+        font-weight: 400;
+      }
     }
   }
 `;

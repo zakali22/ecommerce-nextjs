@@ -46,9 +46,9 @@ export default function EditForm({
         console.log(inputs);
         const res = await updateProduct();
         console.log(res.data);
-        // Router.push({
-        //   pathname: `/product/${res.data?.updateProduct?.id}`,
-        // });
+        Router.push({
+          pathname: `/product/${res.data?.updateProduct?.id}`,
+        });
       }}
     >
       <fieldset aria-busy={loading} disabled={loading}>
