@@ -1,3 +1,3 @@
-export default function Homepage() {
-  return <div>Hello </div>;
-}
+import ProductsPage from './products';
+
+export default ProductsPage;

@@ -13,7 +13,7 @@ const NavStyles = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.7rem;
   a,
   button {
     padding: 1rem 2rem;
@@ -50,14 +50,14 @@ const NavStyles = styled.ul`
       transition: width 0.4s;
       transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
       left: 50%;
-      margin-top: 2rem;
+      margin-top: 2.6rem;
     }
     &:hover,
     &:focus {
       outline: none;
       text-decoration: none;
       &:after {
-        width: calc(100% - 60px);
+        width: calc(100% - 40px);
       }
       @media (max-width: 700px) {
         width: calc(100% - 10px);

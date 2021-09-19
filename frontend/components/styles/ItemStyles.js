@@ -7,6 +7,7 @@ const Item = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   img {
     width: 100%;
     height: 400px;
@@ -22,6 +23,7 @@ const Item = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
+    /* max-width: fit-content; */
     border-top: 1px solid var(--lightGray);
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
@@ -29,8 +31,15 @@ const Item = styled.div`
     & > * {
       background: white;
       border: 0;
-      font-size: 1rem;
+      font-size: 1.5rem;
       padding: 1rem;
+      font-weight: 400;
+      text-align: center;
+      cursor: pointer;
+
+      a {
+        font-weight: 400;
+      }
     }
   }
 `;
