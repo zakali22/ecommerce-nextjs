@@ -55,7 +55,7 @@ export default function SellForm() {
         const res = await createProduct();
         clearForm();
         Router.push({
-          pathname: `/products/${res.data.createProduct.id}`,
+          pathname: `/product/${res.data.createProduct.id}`,
         });
       }}
     >
