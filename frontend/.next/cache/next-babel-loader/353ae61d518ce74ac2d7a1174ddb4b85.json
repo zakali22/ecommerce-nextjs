@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nimport SingleProduct from '../../components/Products/SingleProduct';\nexport default function SingleProductPage({\n  query\n}) {\n  return /*#__PURE__*/_jsx(SingleProduct, {\n    id: query.id\n  });\n}","map":null,"metadata":{},"sourceType":"module"}

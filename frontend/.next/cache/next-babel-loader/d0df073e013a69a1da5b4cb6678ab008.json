@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nexport default function SellPage() {\n  return /*#__PURE__*/_jsx(\"div\", {\n    children: \"Accounts page\"\n  });\n}","map":null,"metadata":{},"sourceType":"module"}
