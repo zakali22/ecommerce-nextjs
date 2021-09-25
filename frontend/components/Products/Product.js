@@ -23,7 +23,6 @@ const ItemTitleStyle = styled.h2`
 `;
 
 export default function Product({ product }) {
-  console.log(product);
   return (
     <Link href={`/product/${product.id}`}>
       <ItemStyles>
@@ -37,7 +36,7 @@ export default function Product({ product }) {
         <div className="buttonList">
           <Link
             href={{
-              pathname: 'update',
+              pathname: '/update',
               query: {
                 id: product?.id,
               },
