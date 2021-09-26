@@ -45,7 +45,7 @@ export default function SignInForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     await signin();
-    if (error !== undefined) {
+    if (error === undefined) {
       resetForm();
       Router.push({
         pathname: '/',
