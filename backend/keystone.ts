@@ -10,6 +10,7 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
+import { sendPasswordEmail } from './lib/mail';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -26,6 +27,12 @@ const { withAuth } = createAuth({
     // When no User exists, request registration
     fields: ['name', 'email', 'password'],
     // Define the roles for the User
+  },
+  passwordResetLink: {
+    async sendToken(args) {
+      await sendPasswordEmail(args.token, args.identity);
+      console.log(args);
+    },
   },
 });
 
