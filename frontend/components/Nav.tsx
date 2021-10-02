@@ -21,7 +21,6 @@ export default function Nav() {
         ) : (
           <>
             <Link href="/signin">Signin</Link>
-            <Link href="/register">Register</Link>
           </>
         )}
       </NavStyle>

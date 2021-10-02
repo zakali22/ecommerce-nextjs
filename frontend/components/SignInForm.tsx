@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
+import { useState } from 'react';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
 import Error from './ErrorMessage';
@@ -36,15 +37,19 @@ export default function SignInForm() {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
-  const error =
-    data?.authenticateUserWithPassword.__typename ===
-    'UserAuthenticationWithPasswordFailure'
-      ? data?.authenticateUserWithPassword
-      : undefined;
+  const [error, setError] = useState(undefined);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await signin();
+    const res = await signin();
+    const error =
+      res.data?.authenticateUserWithPassword.__typename ===
+      'UserAuthenticationWithPasswordFailure'
+        ? res.data?.authenticateUserWithPassword
+        : undefined;
+
+    setError(error);
+
     if (error === undefined) {
       resetForm();
       Router.push({
@@ -55,9 +60,9 @@ export default function SignInForm() {
 
   return (
     <>
-      <Error error={error} />
       <Form method="POST" onSubmit={handleSubmit}>
         <fieldset>
+          <Error error={error} />
           <h2>Sign in to your account</h2>
           <label htmlFor="email">
             Email
