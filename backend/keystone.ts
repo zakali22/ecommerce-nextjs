@@ -10,6 +10,7 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
+import { sendPasswordEmail } from './lib/mail';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -28,10 +29,11 @@ const { withAuth } = createAuth({
     // Define the roles for the User
   },
   passwordResetLink: {
-    async sendToken(args){
-      console.log(args)
-    }
-  }
+    async sendToken(args) {
+      await sendPasswordEmail(args.token, args.identity);
+      console.log(args);
+    },
+  },
 });
 
 export default withAuth(
