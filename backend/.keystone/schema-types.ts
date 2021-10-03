@@ -7,10 +7,10 @@ type Scalars = {
   readonly JSON: import('@keystone-next/types').JSONValue;
 };
 
-export type CartItemRelateToOneInput = {
-  readonly create?: CartItemCreateInput | null;
-  readonly connect?: CartItemWhereUniqueInput | null;
-  readonly disconnect?: CartItemWhereUniqueInput | null;
+export type CartItemRelateToManyInput = {
+  readonly create?: ReadonlyArray<CartItemCreateInput | null> | null;
+  readonly connect?: ReadonlyArray<CartItemWhereUniqueInput | null> | null;
+  readonly disconnect?: ReadonlyArray<CartItemWhereUniqueInput | null> | null;
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
@@ -58,8 +58,9 @@ export type UserWhereInput = {
   readonly email_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly email_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly password_is_set?: Scalars['Boolean'] | null;
-  readonly cart?: CartItemWhereInput | null;
-  readonly cart_is_null?: Scalars['Boolean'] | null;
+  readonly cart_every?: CartItemWhereInput | null;
+  readonly cart_some?: CartItemWhereInput | null;
+  readonly cart_none?: CartItemWhereInput | null;
   readonly passwordResetToken_is_set?: Scalars['Boolean'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetIssuedAt_not?: Scalars['String'] | null;
@@ -138,7 +139,7 @@ export type UserUpdateInput = {
   readonly name?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
-  readonly cart?: CartItemRelateToOneInput | null;
+  readonly cart?: CartItemRelateToManyInput | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;
@@ -156,7 +157,7 @@ export type UserCreateInput = {
   readonly name?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
-  readonly cart?: CartItemRelateToOneInput | null;
+  readonly cart?: CartItemRelateToManyInput | null;
   readonly passwordResetToken?: Scalars['String'] | null;
   readonly passwordResetIssuedAt?: Scalars['String'] | null;
   readonly passwordResetRedeemedAt?: Scalars['String'] | null;

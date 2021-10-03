@@ -1,7 +1,7 @@
-input CartItemRelateToOneInput {
-  create: CartItemCreateInput
-  connect: CartItemWhereUniqueInput
-  disconnect: CartItemWhereUniqueInput
+input CartItemRelateToManyInput {
+  create: [CartItemCreateInput]
+  connect: [CartItemWhereUniqueInput]
+  disconnect: [CartItemWhereUniqueInput]
   disconnectAll: Boolean
 }
 
@@ -11,7 +11,8 @@ type User {
   name: String
   email: String
   password_is_set: Boolean
-  cart: CartItem
+  cart(where: CartItemWhereInput, search: String, sortBy: [SortCartItemsBy!], orderBy: String, first: Int, skip: Int): [CartItem!]!
+  _cartMeta(where: CartItemWhereInput, search: String, sortBy: [SortCartItemsBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -64,8 +65,15 @@ input UserWhereInput {
   email_in: [String]
   email_not_in: [String]
   password_is_set: Boolean
-  cart: CartItemWhereInput
-  cart_is_null: Boolean
+
+  """ condition must be true for all nodes """
+  cart_every: CartItemWhereInput
+
+  """ condition must be true for at least 1 node """
+  cart_some: CartItemWhereInput
+
+  """ condition must be false for all nodes """
+  cart_none: CartItemWhereInput
   passwordResetToken_is_set: Boolean
   passwordResetIssuedAt: String
   passwordResetIssuedAt_not: String
@@ -129,7 +137,7 @@ input UserUpdateInput {
   name: String
   email: String
   password: String
-  cart: CartItemRelateToOneInput
+  cart: CartItemRelateToManyInput
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String
@@ -147,7 +155,7 @@ input UserCreateInput {
   name: String
   email: String
   password: String
-  cart: CartItemRelateToOneInput
+  cart: CartItemRelateToManyInput
   passwordResetToken: String
   passwordResetIssuedAt: String
   passwordResetRedeemedAt: String

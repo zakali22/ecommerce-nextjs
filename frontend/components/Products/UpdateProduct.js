@@ -1,7 +1,8 @@
+/* eslint-disable import/no-cycle */
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import EditForm from '../EditForm.tsx';
+import EditForm from '../EditForm';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
