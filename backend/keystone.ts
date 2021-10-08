@@ -12,6 +12,7 @@ import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
 import { sendPasswordEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -54,6 +55,7 @@ export default withAuth(
         }
       },
     },
+    extendGraphqlSchema,
     lists: createSchema({
       // List of schema goes here
       User,
