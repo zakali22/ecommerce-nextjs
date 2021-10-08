@@ -23,8 +23,6 @@ const CartItemStyle = styled.div`
 `;
 
 export default function CartItem({ cartItem }) {
-  console.log(cartItem);
-
   if (!cartItem.product) return null;
 
   return (

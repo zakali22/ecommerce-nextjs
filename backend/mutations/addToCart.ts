@@ -15,7 +15,7 @@ async function addToCart(
 
   const allCartItems = await context.lists.CartItem.findMany({
     where: { user: { id: user.itemId }, product: { id: productId } },
-    resolveField: 'id, quantity',
+    resolveFields: 'id,quantity,product'
   });
 
   const [existingCartItem] = allCartItems;
@@ -24,8 +24,9 @@ async function addToCart(
     return await context.lists.CartItem.updateOne({
       id: existingCartItem.id,
       data: {
-        quantity: existingCartItem.quantity + 1,
+        quantity: parseInt(existingCartItem.quantity) + 1,
       },
+      resolveFields: false
     });
   }
 
@@ -33,7 +34,8 @@ async function addToCart(
       data: {
           product: {connect: {id: productId}},
           user: {connect: {id: user.itemId}}
-      }
+      },
+      resolveFields: false
   })
 }
 

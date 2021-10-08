@@ -15,24 +15,31 @@ const CartCounter = styled.span`
   padding: 0.3rem 0.6rem;
 `;
 
+function getTotalItems(cart) {
+  return cart.reduce((total, cartItem) => {
+    console.log(total);
+    return total + cartItem.quantity;
+  }, 0);
+}
+
 export default function Nav() {
-  const { id, cart } = useCurrentUser();
+  const user = useCurrentUser();
   const { openCart } = useCart();
 
-  console.log(cart);
+  // console.log(user?.cart);
 
   return (
     <NavContainer>
       <NavStyle>
         <Link href="/products">Shop</Link>
-        {id ? (
+        {user ? (
           <>
             <Link href="/sell">Sell</Link>
             <Link href="/order">Orders</Link>
             <Link href="/accounts">Accounts</Link>
             <button type="button" onClick={openCart}>
               Cart
-              <CartCounter>{cart.length}</CartCounter>
+              <CartCounter>{getTotalItems(user.cart)}</CartCounter>
             </button>
             <Link href="/signout">Signout</Link>
           </>

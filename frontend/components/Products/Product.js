@@ -6,6 +6,7 @@ import ItemStyles from '../styles/ItemStyles';
 import PriceTag from '../styles/PriceTag';
 import formatPrice from '../../lib/formatPrice';
 import DeleteProduct from './DeleteProduct';
+import AddToCart from '../Cart/AddToCart';
 
 const ItemTitleStyle = styled.h2`
   background: var(--red);
@@ -44,6 +45,7 @@ export default function Product({ product }) {
           >
             Edit
           </Link>
+          <AddToCart productId={product.id} />
           <DeleteProduct id={product.id}>Delete</DeleteProduct>
         </div>
       </ItemStyles>
