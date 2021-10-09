@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import SignInForm from '../components/SignInForm.tsx';
-import SignUpForm from '../components/SignUpForm.tsx';
-import RequestResetForm from '../components/RequestResetForm.tsx';
+import SignInForm from '../components/SignInForm';
+import SignUpForm from '../components/SignUpForm';
+import RequestResetForm from '../components/RequestResetForm';
 
 const AuthFormStyle = styled.div`
   display: flex;

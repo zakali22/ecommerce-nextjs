@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import RequestResetForm from '../components/RequestResetForm.tsx';
-import ResetForm from '../components/ResetForm.tsx';
+import RequestResetForm from '../components/RequestResetForm';
+import ResetForm from '../components/ResetForm';
 
 export default function ResetPage({ query }) {
   console.log(query);

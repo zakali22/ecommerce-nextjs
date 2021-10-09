@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/SignUpForm.js", "components/Signout.js", "components/SignInForm.js", "components/SellForm.js", "components/ResetForm.js", "components/RequestResetForm.js", "components/Pagination.js", "components/Header.js", "components/Nav.js", "components/EditForm.js", "components/Cart/CartItem.js", "components/Cart/Cart.js"  ],
   "exclude": [
     "node_modules"
   ]

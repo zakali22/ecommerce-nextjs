@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
@@ -31,10 +32,12 @@ export default function DeleteProduct({ id, children }) {
       type="button"
       onClick={(e) => {
         e.stopPropagation();
-        deleteProduct();
-        Router.push({
-          pathname: '/products',
-        });
+        if (confirm('Are you sure you want to delete this product?')) {
+          deleteProduct();
+          Router.push({
+            pathname: '/products',
+          });
+        }
       }}
     >
       {children}
