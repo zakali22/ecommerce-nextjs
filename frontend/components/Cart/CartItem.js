@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import formatPrice from '../../lib/formatPrice';
+import DeleteCartItem from './DeleteCartItem';
 
 const CartItemStyle = styled.div`
   display: flex;
@@ -20,10 +21,34 @@ const CartItemStyle = styled.div`
   .cart-item-desc {
     margin-right: auto;
   }
+
+  .cart-item-del {
+    font-size: 2rem;
+    font-weight: 1;
+    background: none;
+    border: 1px solid var(--black);
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+    min-width: 3rem;
+    line-height: 0.6;
+    justify-content: center;
+    cursor: pointer;
+    height: 3rem;
+
+    &:hover,
+    &:focus {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+    }
+  }
 `;
 
 export default function CartItem({ cartItem }) {
   if (!cartItem.product) return null;
+  console.log(cartItem);
 
   return (
     <CartItemStyle>
@@ -38,7 +63,7 @@ export default function CartItem({ cartItem }) {
           {cartItem.quantity} &times; {formatPrice(cartItem.product.price)}
         </p>
       </div>
-      <span>&times;</span>
+      <DeleteCartItem id={cartItem.id} />
     </CartItemStyle>
   );
 }
