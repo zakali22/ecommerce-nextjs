@@ -9,7 +9,10 @@ import {
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
+import { sendPasswordEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 const databaseUrl = process.env.DATABASE_URL;
 const sessionConfig = {
@@ -26,6 +29,12 @@ const { withAuth } = createAuth({
     // When no User exists, request registration
     fields: ['name', 'email', 'password'],
     // Define the roles for the User
+  },
+  passwordResetLink: {
+    async sendToken(args) {
+      await sendPasswordEmail(args.token, args.identity);
+      console.log(args);
+    },
   },
 });
 
@@ -46,11 +55,13 @@ export default withAuth(
         }
       },
     },
+    extendGraphqlSchema,
     lists: createSchema({
       // List of schema goes here
       User,
       Product,
       ProductImage,
+      CartItem,
     }),
     ui: {
       // Access to the Keystone dashboard for DB management
