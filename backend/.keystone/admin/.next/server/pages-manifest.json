@@ -2,11 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/cart-items": "pages/cart-items.js",
-  "/products/[id]": "pages/products/[id].js"
-=======
-  "/products/[id]": "pages/products/[id].js",
   "/cart-items": "pages/cart-items.js"
->>>>>>> 89efc1aa45d1f89bb148ed13735954a398f41a80
 }

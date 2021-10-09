@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Nav from './Nav';
 import { Logo } from './styles/Logo';
 import { HeaderStyle } from './styles/Header';
+import Search from './Search';
 import Cart from './Cart/Cart';
 
 export default function Header() {
@@ -12,9 +13,7 @@ export default function Header() {
         <Logo>Sick Fits</Logo>
       </Link>
       <Nav />
-      <div className="search-wrapper">
-        <input type="text" name="search" placeholder="Search For An Item" />
-      </div>
+      <Search />
       <Cart />
     </HeaderStyle>
   );
