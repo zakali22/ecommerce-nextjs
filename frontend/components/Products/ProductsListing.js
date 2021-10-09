@@ -40,7 +40,7 @@ export default function ProductListing({ currPage }) {
 
   return (
     <ProductListingStyle>
-      {data.allProducts.map((product) => (
+      {data?.allProducts.map((product) => (
         <Product key={product.id} product={product} />
       ))}
     </ProductListingStyle>
