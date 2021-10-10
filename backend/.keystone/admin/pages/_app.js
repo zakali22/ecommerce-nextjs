@@ -198,7 +198,7 @@ export default function App({ Component, pageProps }) {
     <Core>
       <KeystoneProvider
         adminConfig={adminConfig}
-        adminMetaHash="cs910k"
+        adminMetaHash="e6epv4"
         fieldViews={fieldViews}
         lazyMetadataQuery={lazyMetadataQuery}
       >
