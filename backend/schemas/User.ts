@@ -16,5 +16,6 @@ export const User = list({
     }),
     password: password(),
     cart: relationship({ ref: 'CartItem.user', many: true }),
+    order: relationship({ ref: 'Order.user', many: true }),
   },
 });
