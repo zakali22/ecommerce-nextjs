@@ -8,7 +8,8 @@
     "dev": "keystone-next",
     "start": "nodemon --exec \"npm run dev\"",
     "seed-data": "keystone-next --seed-data",
-    "postinstall": "keystone-next postinstall"
+    "postinstall": "keystone-next postinstall",
+    "build": "keystone-next build"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
