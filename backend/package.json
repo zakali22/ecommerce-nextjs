@@ -8,8 +8,7 @@
     "dev": "keystone-next",
     "deploy": "keystone-next build && keystone-next prisma migrate deploy",
     "start": "nodemon --exec \"npm run dev\"",
-    "seed-data": "keystone-next --seed-data",
-    "postinstall": "keystone-next postinstall"
+    "seed-data": "keystone-next --seed-data"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
