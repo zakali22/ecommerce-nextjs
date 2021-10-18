@@ -6,7 +6,7 @@ import EditForm from '../EditForm';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
-    Product(where: { id: $id }) {
+    product(where: { id: $id }) {
       id
       name
       description
