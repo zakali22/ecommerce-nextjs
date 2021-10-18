@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
-    Product(where: { id: $id }) {
+    product(where: { id: $id }) {
       id
       name
       description
