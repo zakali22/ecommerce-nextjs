@@ -32,7 +32,7 @@ export const UPDATE_PRODUCT_MUTATION = gql`
     $price: Int
   ) {
     updateProduct(
-      id: $id
+      where: { id: $id }
       data: {
         name: $name
         description: $description
