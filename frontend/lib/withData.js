@@ -26,6 +26,7 @@ function createClient({ headers, initialState }) {
         uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
         fetchOptions: {
           credentials: 'include',
+          mode: 'cors',
         },
         // pass the headers along from this request. This enables SSR with logged in state
         headers,
