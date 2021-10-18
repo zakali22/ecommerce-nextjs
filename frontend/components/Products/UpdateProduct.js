@@ -64,10 +64,10 @@ export default function UpdateProduct({ id }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
-  const { Product } = data;
-  console.log(Product);
+  const { product } = data;
+  console.log(product);
 
-  return <EditForm product={Product} />;
+  return <EditForm product={product} />;
 }
 
 UpdateProduct.propTypes = {
