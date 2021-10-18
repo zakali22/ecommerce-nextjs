@@ -6,6 +6,7 @@ import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
 function createClient({ headers, initialState }) {
+  console.log(headers);
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -28,7 +29,6 @@ function createClient({ headers, initialState }) {
         },
         // pass the headers along from this request. This enables SSR with logged in state
         headers,
-        credentials: 'include',
       }),
     ]),
     cache: new InMemoryCache({
