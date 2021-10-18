@@ -8,9 +8,7 @@ import { perPage } from '../config';
 
 const ALL_PRODUCTS_META_QUERY = gql`
   query {
-    _allProductsMeta {
-      count
-    }
+    productsCount
   }
 `;
 
@@ -45,11 +43,9 @@ export default function Pagination({ currPage }) {
 
   if (loading) return <p>Loading</p>;
 
-  const {
-    _allProductsMeta: { count: totalProductCount },
-  } = data; // Get total number of products
+  const { productsCount } = data; // Get total number of products
 
-  const pageCount = Math.ceil(totalProductCount / perPage); // Total number of pages
+  const pageCount = Math.ceil(productsCount / perPage); // Total number of pages
 
   return (
     <PaginationStyle>
@@ -64,7 +60,7 @@ export default function Pagination({ currPage }) {
       <p>
         Page {currPage} of {pageCount}
       </p>
-      <p>{totalProductCount} Items Total</p>
+      <p>{productsCount} Items Total</p>
       <Link href={`/products/${currPage + 1}`}>
         <a aria-disabled={currPage >= pageCount}>Next &#8594;</a>
       </Link>

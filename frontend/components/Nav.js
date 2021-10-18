@@ -26,7 +26,7 @@ export default function Nav() {
   const user = useCurrentUser();
   const { openCart } = useCart();
 
-  // console.log(user?.cart);
+  console.log(user);
 
   return (
     <NavContainer>

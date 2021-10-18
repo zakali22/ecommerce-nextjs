@@ -18,7 +18,6 @@ export const RESET_MUTATION = gql`
       token: $token
       password: $password
     ) {
-      code
       message
     }
   }

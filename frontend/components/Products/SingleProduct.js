@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
-    Product(where: { id: $id }) {
+    product(where: { id: $id }) {
       id
       name
       description
@@ -43,17 +43,17 @@ export default function SingleProduct({ id }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
-  const { Product } = data;
+  const { product } = data;
 
   return (
     <SingleProductStyle>
       <img
-        src={Product.photo.image.publicUrlTransformed}
-        alt={Product.photo.altText}
+        src={product.photo.image.publicUrlTransformed}
+        alt={product.photo.altText}
       />
       <div className="detail">
-        <h2>{Product.name}</h2>
-        <p>{Product.description}</p>
+        <h2>{product.name}</h2>
+        <p>{product.description}</p>
       </div>
     </SingleProductStyle>
   );

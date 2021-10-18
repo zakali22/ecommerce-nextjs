@@ -6,6 +6,7 @@ import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
 function createClient({ headers, initialState }) {
+  console.log(headers);
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -25,6 +26,7 @@ function createClient({ headers, initialState }) {
         uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
         fetchOptions: {
           credentials: 'include',
+          mode: 'cors',
         },
         // pass the headers along from this request. This enables SSR with logged in state
         headers,

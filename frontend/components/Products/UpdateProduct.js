@@ -6,7 +6,7 @@ import EditForm from '../EditForm';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
-    Product(where: { id: $id }) {
+    product(where: { id: $id }) {
       id
       name
       description
@@ -32,7 +32,7 @@ export const UPDATE_PRODUCT_MUTATION = gql`
     $price: Int
   ) {
     updateProduct(
-      id: $id
+      where: { id: $id }
       data: {
         name: $name
         description: $description
@@ -64,10 +64,10 @@ export default function UpdateProduct({ id }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
-  const { Product } = data;
-  console.log(Product);
+  const { product } = data;
+  console.log(product);
 
-  return <EditForm product={Product} />;
+  return <EditForm product={product} />;
 }
 
 UpdateProduct.propTypes = {
