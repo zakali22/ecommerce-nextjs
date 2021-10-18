@@ -8,7 +8,7 @@ import { perPage } from '../../config';
 // Defined in Graphql playground
 export const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($skip: Int, $first: Int) {
-    allProducts(skip: $skip, first: $first) {
+    products(skip: $skip, first: $first) {
       id
       name
       description
@@ -40,7 +40,7 @@ export default function ProductListing({ currPage }) {
 
   return (
     <ProductListingStyle>
-      {data?.allProducts.map((product) => (
+      {data?.products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
     </ProductListingStyle>

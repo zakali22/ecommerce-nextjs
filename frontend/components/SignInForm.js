@@ -19,7 +19,6 @@ export const SIGNIN_USER_MUTATION = gql`
       }
 
       ... on UserAuthenticationWithPasswordFailure {
-        code
         message
       }
     }
