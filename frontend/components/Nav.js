@@ -16,10 +16,7 @@ const CartCounter = styled.span`
 `;
 
 function getTotalItems(cart) {
-  return cart.reduce((total, cartItem) => {
-    console.log(total);
-    return total + cartItem.quantity;
-  }, 0);
+  return cart.reduce((total, cartItem) => total + cartItem.quantity, 0);
 }
 
 export default function Nav() {

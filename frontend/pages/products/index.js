@@ -7,7 +7,6 @@ export default function ProductPage() {
   const {
     query: { pageNum },
   } = useRouter();
-  console.log(parseInt(pageNum));
 
   return (
     <>
